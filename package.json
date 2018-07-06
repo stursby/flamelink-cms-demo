@@ -1,0 +1,16 @@
+{
+  "name": "flamelink-cms-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt generate",
+    "deploy": "firebase deploy --only hosting"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "firebase": "^5.2.0",
+    "flamelink": "^0.17.1",
+    "nuxt": "^1.4.1"
+  }
+}
