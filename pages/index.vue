@@ -3,26 +3,18 @@
     <h1>Flamelink CMS Demo</h1>
     <div v-for="product in products" :key="product.id">
       <h3>{{ product.name }} ${{ product.price }}</h3>
-      <flamelink-image
-        :id="product.image[0]"
-        :alt="`${product.name} product`"
-      />
+      <img :src="product.image[0].url" :alt="`${product.name} product`">
     </div>
   </div>
 </template>
 
 <script>
-import app from '~/plugins/flamelink'
-import FlamelinkImage from '~/components/FlamelinkImage'
-
 export default {
-  components: {
-    FlamelinkImage
-  },
-
-  async asyncData() {
+  async asyncData({ app }) {
     try {
-      const products = await app.content.get('products')
+      const products = await app.flamelink.content.get('products', {
+        populate: ['image']
+      })
       return { products }
     } catch (err) {
       console.log(err)

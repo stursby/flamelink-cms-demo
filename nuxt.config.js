@@ -1,5 +1,7 @@
 module.exports = {
 
-  plugins: ['~/plugins/flamelink']
+  plugins: ['~/plugins/flamelink'],
+
+  modules: ['@nuxtjs/dotenv']
 
 }
